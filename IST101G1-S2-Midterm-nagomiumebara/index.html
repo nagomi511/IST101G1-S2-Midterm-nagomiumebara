@@ -25,9 +25,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <title>CCTB - DevOps Infrastructure Level 1</title>
+  <script>
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('ec2-ip').textContent = data.ip;
+      })
+      .catch(error => {
+        document.getElementById('ec2-ip').textContent = 'Unable to load IP.';
+      });
+  </script>
 </head>
 
 <body>
+  <p>My EC2 Instance Public IP:</p>
+  <div id="ec2-ip">Loading...</div>
+  
+  <!-- 自分の情報 -->
+  <p>Full Name: NagomiUmebara</p>
+  <p>Date: 2025-06-13</p>
   <h1 id="title">MidTerm Exam - DevOps Infrastructure Level 1</h1>
 
   <div class="container">
